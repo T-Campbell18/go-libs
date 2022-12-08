@@ -65,3 +65,11 @@ func (m *Map[T, V]) GetOrDefault(key T, defaultValue V) V {
 func (m *Map[T, V]) String() string {
 	return fmt.Sprintf("%v", m.items)
 }
+
+func (m *Map[T, V]) Clear() {
+	m.items = make(map[T]V)
+}
+
+func (m *Map[T, V]) Items() map[T]V {
+	return m.items
+}
