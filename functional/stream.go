@@ -8,6 +8,10 @@ func NewStream[T any](items []T) *Stream[T] {
 	return &Stream[T]{items: items}
 }
 
+func Of[T any](items ...T) *Stream[T] {
+	return NewStream(items)
+}
+
 func (s *Stream[T]) Map(f func(T) T) *Stream[T] {
 	result := make([]T, len(s.items))
 	for i, item := range s.items {
